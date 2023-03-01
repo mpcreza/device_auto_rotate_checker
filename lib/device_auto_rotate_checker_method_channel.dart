@@ -1,0 +1,26 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
+
+import 'device_auto_rotate_checker_platform_interface.dart';
+
+/// An implementation of [DeviceAutoRotateCheckerPlatform] that uses method channels.
+class MethodChannelDeviceAutoRotateChecker
+    extends DeviceAutoRotateCheckerPlatform {
+  /// The method channel used to interact with the native platform.
+  @visibleForTesting
+  final methodChannel = const MethodChannel('device_auto_rotate_checker');
+
+  final EventChannel eventChannel = const EventChannel('device_auto_rotate_event');
+
+  @override
+    Future<bool> checkAutoRotate() async {
+    final autoRotate =
+        await methodChannel.invokeMethod<bool>('checkAutoRotate');
+    return autoRotate ?? false;
+  }
+
+  @override
+  Stream<bool> autoRotateStream() {
+    return eventChannel.receiveBroadcastStream().cast();
+  }
+}
