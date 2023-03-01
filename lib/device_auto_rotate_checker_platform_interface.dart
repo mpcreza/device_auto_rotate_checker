@@ -27,7 +27,7 @@ abstract class DeviceAutoRotateCheckerPlatform extends PlatformInterface {
     throw UnimplementedError('checkAutoRotate() has not been implemented.');
   }
 
-  Stream<bool> autoRotateStream() {
+  Stream<bool> get autoRotateStream {
     throw UnimplementedError('autoRotateStream() has not been implemented.');
   }
 }

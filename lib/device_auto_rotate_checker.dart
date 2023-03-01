@@ -6,7 +6,7 @@ class DeviceAutoRotateChecker {
     return DeviceAutoRotateCheckerPlatform.instance.checkAutoRotate();
   }
 
-  static Stream<bool> autoRotateStream() {
-    return DeviceAutoRotateCheckerPlatform.instance.autoRotateStream();
+  static Stream<bool> get autoRotateStream {
+    return DeviceAutoRotateCheckerPlatform.instance.autoRotateStream;
   }
 }

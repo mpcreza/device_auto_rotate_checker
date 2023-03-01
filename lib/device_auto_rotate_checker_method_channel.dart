@@ -12,6 +12,8 @@ class MethodChannelDeviceAutoRotateChecker
 
   final EventChannel eventChannel = const EventChannel('device_auto_rotate_event');
 
+  Stream<bool>? _autoRotateStream;
+
   @override
     Future<bool> checkAutoRotate() async {
     final autoRotate =
@@ -20,7 +22,8 @@ class MethodChannelDeviceAutoRotateChecker
   }
 
   @override
-  Stream<bool> autoRotateStream() {
-    return eventChannel.receiveBroadcastStream().cast();
+  Stream<bool> get autoRotateStream {
+    _autoRotateStream ??= eventChannel.receiveBroadcastStream().cast();
+    return _autoRotateStream!;
   }
 }
