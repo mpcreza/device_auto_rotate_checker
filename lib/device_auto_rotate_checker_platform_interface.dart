@@ -8,7 +8,8 @@ abstract class DeviceAutoRotateCheckerPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static DeviceAutoRotateCheckerPlatform _instance = MethodChannelDeviceAutoRotateChecker();
+  static DeviceAutoRotateCheckerPlatform _instance =
+      MethodChannelDeviceAutoRotateChecker();
 
   /// The default instance of [DeviceAutoRotateCheckerPlatform] to use.
   ///
@@ -23,10 +24,12 @@ abstract class DeviceAutoRotateCheckerPlatform extends PlatformInterface {
     _instance = instance;
   }
 
+  /// Check device auto rotate
   Future<bool> checkAutoRotate() {
     throw UnimplementedError('checkAutoRotate() has not been implemented.');
   }
 
+  /// Listen to the device's auto rotate settings change
   Stream<bool> get autoRotateStream {
     throw UnimplementedError('autoRotateStream() has not been implemented.');
   }

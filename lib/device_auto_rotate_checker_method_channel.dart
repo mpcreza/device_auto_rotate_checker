@@ -14,6 +14,7 @@ class MethodChannelDeviceAutoRotateChecker
 
   Stream<bool>? _autoRotateStream;
 
+  /// Check device auto rotate
   @override
     Future<bool> checkAutoRotate() async {
     final autoRotate =
@@ -21,6 +22,7 @@ class MethodChannelDeviceAutoRotateChecker
     return autoRotate ?? false;
   }
 
+  /// Listen to the device's auto rotate settings change
   @override
   Stream<bool> get autoRotateStream {
     _autoRotateStream ??= eventChannel.receiveBroadcastStream().cast();
