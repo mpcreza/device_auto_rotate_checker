@@ -10,13 +10,14 @@ class MethodChannelDeviceAutoRotateChecker
   @visibleForTesting
   final methodChannel = const MethodChannel('device_auto_rotate_checker');
 
-  final EventChannel eventChannel = const EventChannel('device_auto_rotate_event');
+  final EventChannel eventChannel =
+      const EventChannel('device_auto_rotate_event');
 
   Stream<bool>? _autoRotateStream;
 
   /// Check device auto rotate
   @override
-    Future<bool> checkAutoRotate() async {
+  Future<bool> checkAutoRotate() async {
     final autoRotate =
         await methodChannel.invokeMethod<bool>('checkAutoRotate');
     return autoRotate ?? false;
