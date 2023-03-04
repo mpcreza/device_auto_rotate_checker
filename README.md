@@ -1,6 +1,6 @@
 # device_auto_rotate_checker
 
-A flutter package to check if device auto rotate is on or off.
+A flutter plugin to check if device auto rotate is on or off.
 
 Note: This plugin only supports Android. there is no way to check auto rotate on iOS.
 
