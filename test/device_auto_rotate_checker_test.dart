@@ -7,23 +7,27 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockDeviceAutoRotateCheckerPlatform
     with MockPlatformInterfaceMixin
     implements DeviceAutoRotateCheckerPlatform {
+  @override
+  Future<bool> checkAutoRotate() => Future.value(true);
 
   @override
-  Future<String?> getPlatformVersion() => Future.value('42');
+  Stream<bool> get autoRotateStream => Stream.value(true);
 }
 
 void main() {
-  final DeviceAutoRotateCheckerPlatform initialPlatform = DeviceAutoRotateCheckerPlatform.instance;
+  final DeviceAutoRotateCheckerPlatform initialPlatform =
+      DeviceAutoRotateCheckerPlatform.instance;
 
   test('$MethodChannelDeviceAutoRotateChecker is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelDeviceAutoRotateChecker>());
+    expect(
+        initialPlatform, isInstanceOf<MethodChannelDeviceAutoRotateChecker>());
   });
 
-  test('getPlatformVersion', () async {
-    DeviceAutoRotateChecker deviceAutoRotateCheckerPlugin = DeviceAutoRotateChecker();
-    MockDeviceAutoRotateCheckerPlatform fakePlatform = MockDeviceAutoRotateCheckerPlatform();
+  test('checkAutoRotate', () async {
+    MockDeviceAutoRotateCheckerPlatform fakePlatform =
+        MockDeviceAutoRotateCheckerPlatform();
     DeviceAutoRotateCheckerPlatform.instance = fakePlatform;
 
-    expect(await deviceAutoRotateCheckerPlugin.getPlatformVersion(), '42');
+    expect(await DeviceAutoRotateChecker.checkAutoRotate(), true);
   });
 }
