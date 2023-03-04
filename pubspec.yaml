@@ -1,6 +1,7 @@
 name: device_auto_rotate_checker
 description: A new Flutter project.
 version: 0.0.1
+repository: https://github.com/mpcreza/device_auto_rotate_checker
 
 environment:
   sdk: '>=2.14.0 <3.0.0'
