@@ -1,5 +1,5 @@
 name: device_auto_rotate_checker
-description: A new Flutter project.
+description: A flutter plugin to check if device auto rotate is on or off.
 version: 0.0.1
 repository: https://github.com/mpcreza/device_auto_rotate_checker
 
